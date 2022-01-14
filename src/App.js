@@ -1,8 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar.js';
-// Be sure to uncomment these components and the data before you use them!
-// import SchoolCard from './components/SchoolCard.js';
-// import data from './nycSchoolEnrollmentData.js';
+import SchoolCard from './components/SchoolCard.js';
+import data from './nycSchoolEnrollmentData.js';
 import './App.css';
 
 function App() {
@@ -11,7 +10,18 @@ function App() {
       <Navbar/>
       <div className="container">
         <div className="row">
-
+        {data.map(school =>(
+        <SchoolCard 
+        name={school.ENTITY_NAME}
+        year={school.YEAR}
+        hisp={school.PER_HISP}
+        blk={school.PER_BLACK}
+        white={school.PER_WHITE}
+        male={school.PER_ASIAN}
+        female={school.PER_MALE}
+        swd={school.PER_SWD}
+        ecdis={school.PER_ECDIS}/>
+        ))}
         </div>
       </div>
     </div>
